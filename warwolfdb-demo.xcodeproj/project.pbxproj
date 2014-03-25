@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08CDFAF6EC394DFEBC60D221 /* libPods-warwolfdb-demoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC58C60AD8F9430D91BEBCBA /* libPods-warwolfdb-demoTests.a */; };
 		4A0816BA18CDF7630056AE9F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0816B918CDF7630056AE9F /* Foundation.framework */; };
 		4A0816BC18CDF7630056AE9F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0816BB18CDF7630056AE9F /* CoreGraphics.framework */; };
 		4A0816BE18CDF7630056AE9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0816BD18CDF7630056AE9F /* UIKit.framework */; };
@@ -19,6 +20,45 @@
 		4A0816D518CDF7630056AE9F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0816BD18CDF7630056AE9F /* UIKit.framework */; };
 		4A0816DD18CDF7630056AE9F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A0816DB18CDF7630056AE9F /* InfoPlist.strings */; };
 		4A0816DF18CDF7630056AE9F /* warwolfdb_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0816DE18CDF7630056AE9F /* warwolfdb_demoTests.m */; };
+		4A0816ED18CDF9BE0056AE9F /* WLFEntityIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0816EC18CDF9BE0056AE9F /* WLFEntityIdentifier.m */; };
+		4A0816EE18CDF9BE0056AE9F /* WLFEntityIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0816EC18CDF9BE0056AE9F /* WLFEntityIdentifier.m */; };
+		4A0816F118CDFAB30056AE9F /* WLFEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0816F018CDFAB30056AE9F /* WLFEntity.m */; };
+		4A0816F218CDFAB30056AE9F /* WLFEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0816F018CDFAB30056AE9F /* WLFEntity.m */; };
+		4A0816F518CDFBE50056AE9F /* WLFDynamicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0816F418CDFBE50056AE9F /* WLFDynamicObject.m */; };
+		4A0816F618CDFBE50056AE9F /* WLFDynamicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0816F418CDFBE50056AE9F /* WLFDynamicObject.m */; };
+		4A0816F918CE0E4A0056AE9F /* WLFArrayProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0816F818CE0E4A0056AE9F /* WLFArrayProxy.m */; };
+		4A0816FA18CE0E4A0056AE9F /* WLFArrayProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0816F818CE0E4A0056AE9F /* WLFArrayProxy.m */; };
+		4A08170118CE101C0056AE9F /* WLFRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08170018CE101C0056AE9F /* WLFRepository.m */; };
+		4A08170218CE101C0056AE9F /* WLFRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08170018CE101C0056AE9F /* WLFRepository.m */; };
+		4A08170618CE1EF00056AE9F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08170518CE1EF00056AE9F /* User.m */; };
+		4A08170718CE1EF00056AE9F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08170518CE1EF00056AE9F /* User.m */; };
+		4A08170A18CE1F070056AE9F /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08170918CE1F070056AE9F /* Book.m */; };
+		4A08170B18CE1F070056AE9F /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08170918CE1F070056AE9F /* Book.m */; };
+		4A08171318D1FD0C0056AE9F /* WLFDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08171218D1FD0C0056AE9F /* WLFDatabase.m */; };
+		4A08171418D1FD0C0056AE9F /* WLFDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08171218D1FD0C0056AE9F /* WLFDatabase.m */; };
+		4A08171718D1FD1F0056AE9F /* WLFCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08171618D1FD1F0056AE9F /* WLFCursor.m */; };
+		4A08171818D1FD1F0056AE9F /* WLFCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08171618D1FD1F0056AE9F /* WLFCursor.m */; };
+		4A08172018D1FFAB0056AE9F /* WLFDatabase+Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08171F18D1FFAB0056AE9F /* WLFDatabase+Internal.m */; };
+		4A08172118D1FFAB0056AE9F /* WLFDatabase+Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08171F18D1FFAB0056AE9F /* WLFDatabase+Internal.m */; };
+		4A08172D18D3FAD20056AE9F /* WLFTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08172A18D3FAD20056AE9F /* WLFTable.m */; };
+		4A08172E18D3FAD20056AE9F /* WLFTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08172A18D3FAD20056AE9F /* WLFTable.m */; };
+		4A08173518D3FAFE0056AE9F /* WLFColumnKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08173418D3FAFE0056AE9F /* WLFColumnKey.m */; };
+		4A08173618D3FAFE0056AE9F /* WLFColumnKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08173418D3FAFE0056AE9F /* WLFColumnKey.m */; };
+		4A08173918D3FB6B0056AE9F /* WLFTableColumns.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08173818D3FB6B0056AE9F /* WLFTableColumns.m */; };
+		4A08173A18D3FB6B0056AE9F /* WLFTableColumns.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08173818D3FB6B0056AE9F /* WLFTableColumns.m */; };
+		4A08174218D47D120056AE9F /* WLFTableReferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08174118D47D120056AE9F /* WLFTableReferences.m */; };
+		4A08174318D47D120056AE9F /* WLFTableReferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08174118D47D120056AE9F /* WLFTableReferences.m */; };
+		4A08174A18D47F970056AE9F /* WLFReferenceKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08174918D47F970056AE9F /* WLFReferenceKey.m */; };
+		4A08174B18D47F970056AE9F /* WLFReferenceKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08174918D47F970056AE9F /* WLFReferenceKey.m */; };
+		4A08174E18D74F050056AE9F /* WLFTableReverses.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08174D18D74F050056AE9F /* WLFTableReverses.m */; };
+		4A08174F18D74F050056AE9F /* WLFTableReverses.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08174D18D74F050056AE9F /* WLFTableReverses.m */; };
+		4A08175218D88BD40056AE9F /* UserHasBooks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08175118D88BD40056AE9F /* UserHasBooks.m */; };
+		4A08175318D88BD40056AE9F /* UserHasBooks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08175118D88BD40056AE9F /* UserHasBooks.m */; };
+		4A20702C18E1A52B00D9EFF3 /* WLFArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A20702B18E1A52B00D9EFF3 /* WLFArray.m */; };
+		4A20702D18E1A52B00D9EFF3 /* WLFArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A20702B18E1A52B00D9EFF3 /* WLFArray.m */; };
+		4A6C1BE418DF0C1700F64A62 /* WLFEntityReferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C1BE318DF0C1700F64A62 /* WLFEntityReferences.m */; };
+		4A6C1BE518DF0C1700F64A62 /* WLFEntityReferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C1BE318DF0C1700F64A62 /* WLFEntityReferences.m */; };
+		96669DA15EF242E89A0B78AE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 035E06074E7F4CA79C6983D3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		035E06074E7F4CA79C6983D3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A0816B618CDF7630056AE9F /* warwolfdb-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "warwolfdb-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A0816B918CDF7630056AE9F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4A0816BB18CDF7630056AE9F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,6 +89,50 @@
 		4A0816DA18CDF7630056AE9F /* warwolfdb-demoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "warwolfdb-demoTests-Info.plist"; sourceTree = "<group>"; };
 		4A0816DC18CDF7630056AE9F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4A0816DE18CDF7630056AE9F /* warwolfdb_demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = warwolfdb_demoTests.m; sourceTree = "<group>"; };
+		4A0816EB18CDF9BE0056AE9F /* WLFEntityIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFEntityIdentifier.h; sourceTree = "<group>"; };
+		4A0816EC18CDF9BE0056AE9F /* WLFEntityIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFEntityIdentifier.m; sourceTree = "<group>"; };
+		4A0816EF18CDFAB30056AE9F /* WLFEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFEntity.h; sourceTree = "<group>"; };
+		4A0816F018CDFAB30056AE9F /* WLFEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFEntity.m; sourceTree = "<group>"; };
+		4A0816F318CDFBE50056AE9F /* WLFDynamicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFDynamicObject.h; sourceTree = "<group>"; };
+		4A0816F418CDFBE50056AE9F /* WLFDynamicObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFDynamicObject.m; sourceTree = "<group>"; };
+		4A0816F718CE0E4A0056AE9F /* WLFArrayProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFArrayProxy.h; sourceTree = "<group>"; };
+		4A0816F818CE0E4A0056AE9F /* WLFArrayProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFArrayProxy.m; sourceTree = "<group>"; };
+		4A0816FF18CE101C0056AE9F /* WLFRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFRepository.h; sourceTree = "<group>"; };
+		4A08170018CE101C0056AE9F /* WLFRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFRepository.m; sourceTree = "<group>"; };
+		4A08170418CE1EF00056AE9F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		4A08170518CE1EF00056AE9F /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		4A08170818CE1F070056AE9F /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		4A08170918CE1F070056AE9F /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		4A08171118D1FD0C0056AE9F /* WLFDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFDatabase.h; sourceTree = "<group>"; };
+		4A08171218D1FD0C0056AE9F /* WLFDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFDatabase.m; sourceTree = "<group>"; };
+		4A08171518D1FD1F0056AE9F /* WLFCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFCursor.h; sourceTree = "<group>"; };
+		4A08171618D1FD1F0056AE9F /* WLFCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFCursor.m; sourceTree = "<group>"; };
+		4A08171A18D1FE520056AE9F /* WLFCursor+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WLFCursor+Internal.h"; sourceTree = "<group>"; };
+		4A08171E18D1FFAB0056AE9F /* WLFDatabase+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WLFDatabase+Internal.h"; sourceTree = "<group>"; };
+		4A08171F18D1FFAB0056AE9F /* WLFDatabase+Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WLFDatabase+Internal.m"; sourceTree = "<group>"; };
+		4A08172918D3FAD20056AE9F /* WLFTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFTable.h; sourceTree = "<group>"; };
+		4A08172A18D3FAD20056AE9F /* WLFTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFTable.m; sourceTree = "<group>"; };
+		4A08173318D3FAFE0056AE9F /* WLFColumnKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFColumnKey.h; sourceTree = "<group>"; };
+		4A08173418D3FAFE0056AE9F /* WLFColumnKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFColumnKey.m; sourceTree = "<group>"; };
+		4A08173718D3FB6B0056AE9F /* WLFTableColumns.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFTableColumns.h; sourceTree = "<group>"; };
+		4A08173818D3FB6B0056AE9F /* WLFTableColumns.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFTableColumns.m; sourceTree = "<group>"; };
+		4A08173C18D476F80056AE9F /* WLFTableColumns+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WLFTableColumns+Internal.h"; sourceTree = "<group>"; };
+		4A08174018D47D120056AE9F /* WLFTableReferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFTableReferences.h; sourceTree = "<group>"; };
+		4A08174118D47D120056AE9F /* WLFTableReferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFTableReferences.m; sourceTree = "<group>"; };
+		4A08174418D47F1F0056AE9F /* WLFTableReferences+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WLFTableReferences+Internal.h"; sourceTree = "<group>"; };
+		4A08174818D47F970056AE9F /* WLFReferenceKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFReferenceKey.h; sourceTree = "<group>"; };
+		4A08174918D47F970056AE9F /* WLFReferenceKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFReferenceKey.m; sourceTree = "<group>"; };
+		4A08174C18D74F050056AE9F /* WLFTableReverses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFTableReverses.h; sourceTree = "<group>"; };
+		4A08174D18D74F050056AE9F /* WLFTableReverses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFTableReverses.m; sourceTree = "<group>"; };
+		4A08175018D88BD40056AE9F /* UserHasBooks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHasBooks.h; sourceTree = "<group>"; };
+		4A08175118D88BD40056AE9F /* UserHasBooks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHasBooks.m; sourceTree = "<group>"; };
+		4A20702A18E1A52B00D9EFF3 /* WLFArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFArray.h; sourceTree = "<group>"; };
+		4A20702B18E1A52B00D9EFF3 /* WLFArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFArray.m; sourceTree = "<group>"; };
+		4A6C1BE218DF0C1700F64A62 /* WLFEntityReferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFEntityReferences.h; sourceTree = "<group>"; };
+		4A6C1BE318DF0C1700F64A62 /* WLFEntityReferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFEntityReferences.m; sourceTree = "<group>"; };
+		5882E6EB028E409180D71109 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		AF2C2F2B1E754EC68EA98B05 /* Pods-warwolfdb-demoTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-warwolfdb-demoTests.xcconfig"; path = "Pods/Pods-warwolfdb-demoTests.xcconfig"; sourceTree = "<group>"; };
+		CC58C60AD8F9430D91BEBCBA /* libPods-warwolfdb-demoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-warwolfdb-demoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +143,7 @@
 				4A0816BC18CDF7630056AE9F /* CoreGraphics.framework in Frameworks */,
 				4A0816BE18CDF7630056AE9F /* UIKit.framework in Frameworks */,
 				4A0816BA18CDF7630056AE9F /* Foundation.framework in Frameworks */,
+				96669DA15EF242E89A0B78AE /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +154,7 @@
 				4A0816D318CDF7630056AE9F /* XCTest.framework in Frameworks */,
 				4A0816D518CDF7630056AE9F /* UIKit.framework in Frameworks */,
 				4A0816D418CDF7630056AE9F /* Foundation.framework in Frameworks */,
+				08CDFAF6EC394DFEBC60D221 /* libPods-warwolfdb-demoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,10 +164,13 @@
 		4A0816AD18CDF7630056AE9F = {
 			isa = PBXGroup;
 			children = (
+				4A0816E818CDF76A0056AE9F /* warwolfdb */,
 				4A0816BF18CDF7630056AE9F /* warwolfdb-demo */,
 				4A0816D818CDF7630056AE9F /* warwolfdb-demoTests */,
 				4A0816B818CDF7630056AE9F /* Frameworks */,
 				4A0816B718CDF7630056AE9F /* Products */,
+				5882E6EB028E409180D71109 /* Pods.xcconfig */,
+				AF2C2F2B1E754EC68EA98B05 /* Pods-warwolfdb-demoTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +190,8 @@
 				4A0816BB18CDF7630056AE9F /* CoreGraphics.framework */,
 				4A0816BD18CDF7630056AE9F /* UIKit.framework */,
 				4A0816D218CDF7630056AE9F /* XCTest.framework */,
+				035E06074E7F4CA79C6983D3 /* libPods.a */,
+				CC58C60AD8F9430D91BEBCBA /* libPods-warwolfdb-demoTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -107,6 +199,7 @@
 		4A0816BF18CDF7630056AE9F /* warwolfdb-demo */ = {
 			isa = PBXGroup;
 			children = (
+				4A08170318CE1EDC0056AE9F /* models */,
 				4A0816C818CDF7630056AE9F /* WLFAppDelegate.h */,
 				4A0816C918CDF7630056AE9F /* WLFAppDelegate.m */,
 				4A0816CB18CDF7630056AE9F /* Images.xcassets */,
@@ -144,6 +237,109 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4A0816E818CDF76A0056AE9F /* warwolfdb */ = {
+			isa = PBXGroup;
+			children = (
+				4A08171018D1FCBB0056AE9F /* database */,
+				4A0816EA18CDF9930056AE9F /* entity */,
+				4A0816E918CDF8800056AE9F /* core */,
+			);
+			path = warwolfdb;
+			sourceTree = "<group>";
+		};
+		4A0816E918CDF8800056AE9F /* core */ = {
+			isa = PBXGroup;
+			children = (
+				4A0816F318CDFBE50056AE9F /* WLFDynamicObject.h */,
+				4A0816F418CDFBE50056AE9F /* WLFDynamicObject.m */,
+				4A0816F718CE0E4A0056AE9F /* WLFArrayProxy.h */,
+				4A0816F818CE0E4A0056AE9F /* WLFArrayProxy.m */,
+				4A0816FF18CE101C0056AE9F /* WLFRepository.h */,
+				4A08170018CE101C0056AE9F /* WLFRepository.m */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
+		4A0816EA18CDF9930056AE9F /* entity */ = {
+			isa = PBXGroup;
+			children = (
+				4A0816EB18CDF9BE0056AE9F /* WLFEntityIdentifier.h */,
+				4A0816EC18CDF9BE0056AE9F /* WLFEntityIdentifier.m */,
+				4A0816EF18CDFAB30056AE9F /* WLFEntity.h */,
+				4A0816F018CDFAB30056AE9F /* WLFEntity.m */,
+				4A6C1BE218DF0C1700F64A62 /* WLFEntityReferences.h */,
+				4A6C1BE318DF0C1700F64A62 /* WLFEntityReferences.m */,
+				4A20702A18E1A52B00D9EFF3 /* WLFArray.h */,
+				4A20702B18E1A52B00D9EFF3 /* WLFArray.m */,
+			);
+			path = entity;
+			sourceTree = "<group>";
+		};
+		4A08170318CE1EDC0056AE9F /* models */ = {
+			isa = PBXGroup;
+			children = (
+				4A08170418CE1EF00056AE9F /* User.h */,
+				4A08170518CE1EF00056AE9F /* User.m */,
+				4A08170818CE1F070056AE9F /* Book.h */,
+				4A08170918CE1F070056AE9F /* Book.m */,
+				4A08175018D88BD40056AE9F /* UserHasBooks.h */,
+				4A08175118D88BD40056AE9F /* UserHasBooks.m */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		4A08171018D1FCBB0056AE9F /* database */ = {
+			isa = PBXGroup;
+			children = (
+				4A08172618D3FA8E0056AE9F /* table */,
+				4A08171918D1FE260056AE9F /* internal */,
+				4A08171118D1FD0C0056AE9F /* WLFDatabase.h */,
+				4A08171218D1FD0C0056AE9F /* WLFDatabase.m */,
+				4A08171518D1FD1F0056AE9F /* WLFCursor.h */,
+				4A08171618D1FD1F0056AE9F /* WLFCursor.m */,
+			);
+			path = database;
+			sourceTree = "<group>";
+		};
+		4A08171918D1FE260056AE9F /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				4A08171A18D1FE520056AE9F /* WLFCursor+Internal.h */,
+				4A08171E18D1FFAB0056AE9F /* WLFDatabase+Internal.h */,
+				4A08171F18D1FFAB0056AE9F /* WLFDatabase+Internal.m */,
+			);
+			name = internal;
+			sourceTree = "<group>";
+		};
+		4A08172618D3FA8E0056AE9F /* table */ = {
+			isa = PBXGroup;
+			children = (
+				4A08173B18D476CD0056AE9F /* internal */,
+				4A08172918D3FAD20056AE9F /* WLFTable.h */,
+				4A08172A18D3FAD20056AE9F /* WLFTable.m */,
+				4A08173318D3FAFE0056AE9F /* WLFColumnKey.h */,
+				4A08173418D3FAFE0056AE9F /* WLFColumnKey.m */,
+				4A08174818D47F970056AE9F /* WLFReferenceKey.h */,
+				4A08174918D47F970056AE9F /* WLFReferenceKey.m */,
+				4A08173718D3FB6B0056AE9F /* WLFTableColumns.h */,
+				4A08173818D3FB6B0056AE9F /* WLFTableColumns.m */,
+				4A08174018D47D120056AE9F /* WLFTableReferences.h */,
+				4A08174118D47D120056AE9F /* WLFTableReferences.m */,
+				4A08174C18D74F050056AE9F /* WLFTableReverses.h */,
+				4A08174D18D74F050056AE9F /* WLFTableReverses.m */,
+			);
+			path = table;
+			sourceTree = "<group>";
+		};
+		4A08173B18D476CD0056AE9F /* internal */ = {
+			isa = PBXGroup;
+			children = (
+				4A08173C18D476F80056AE9F /* WLFTableColumns+Internal.h */,
+				4A08174418D47F1F0056AE9F /* WLFTableReferences+Internal.h */,
+			);
+			name = internal;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,9 +347,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A0816E218CDF7630056AE9F /* Build configuration list for PBXNativeTarget "warwolfdb-demo" */;
 			buildPhases = (
+				3CFE8CD01D824EB69482AB92 /* Check Pods Manifest.lock */,
 				4A0816B218CDF7630056AE9F /* Sources */,
 				4A0816B318CDF7630056AE9F /* Frameworks */,
 				4A0816B418CDF7630056AE9F /* Resources */,
+				78ED3A3435FA4A6CA0789DD2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -168,9 +366,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A0816E518CDF7630056AE9F /* Build configuration list for PBXNativeTarget "warwolfdb-demoTests" */;
 			buildPhases = (
+				5A92A3E177EF4A13A43DCD1F /* Check Pods Manifest.lock */,
 				4A0816CD18CDF7630056AE9F /* Sources */,
 				4A0816CE18CDF7630056AE9F /* Frameworks */,
 				4A0816CF18CDF7630056AE9F /* Resources */,
+				822E0AAAE8D947EEA4E077F0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,12 +435,94 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3CFE8CD01D824EB69482AB92 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5A92A3E177EF4A13A43DCD1F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		78ED3A3435FA4A6CA0789DD2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		822E0AAAE8D947EEA4E077F0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-warwolfdb-demoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4A0816B218CDF7630056AE9F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A08171718D1FD1F0056AE9F /* WLFCursor.m in Sources */,
+				4A08170A18CE1F070056AE9F /* Book.m in Sources */,
+				4A0816F118CDFAB30056AE9F /* WLFEntity.m in Sources */,
+				4A08170618CE1EF00056AE9F /* User.m in Sources */,
+				4A0816F518CDFBE50056AE9F /* WLFDynamicObject.m in Sources */,
+				4A6C1BE418DF0C1700F64A62 /* WLFEntityReferences.m in Sources */,
+				4A08173918D3FB6B0056AE9F /* WLFTableColumns.m in Sources */,
+				4A08170118CE101C0056AE9F /* WLFRepository.m in Sources */,
+				4A08172D18D3FAD20056AE9F /* WLFTable.m in Sources */,
+				4A0816ED18CDF9BE0056AE9F /* WLFEntityIdentifier.m in Sources */,
+				4A08172018D1FFAB0056AE9F /* WLFDatabase+Internal.m in Sources */,
+				4A08174A18D47F970056AE9F /* WLFReferenceKey.m in Sources */,
+				4A08174E18D74F050056AE9F /* WLFTableReverses.m in Sources */,
+				4A08174218D47D120056AE9F /* WLFTableReferences.m in Sources */,
 				4A0816CA18CDF7630056AE9F /* WLFAppDelegate.m in Sources */,
+				4A08173518D3FAFE0056AE9F /* WLFColumnKey.m in Sources */,
+				4A0816F918CE0E4A0056AE9F /* WLFArrayProxy.m in Sources */,
+				4A20702C18E1A52B00D9EFF3 /* WLFArray.m in Sources */,
+				4A08171318D1FD0C0056AE9F /* WLFDatabase.m in Sources */,
+				4A08175218D88BD40056AE9F /* UserHasBooks.m in Sources */,
 				4A0816C618CDF7630056AE9F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,7 +531,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A6C1BE518DF0C1700F64A62 /* WLFEntityReferences.m in Sources */,
+				4A08170718CE1EF00056AE9F /* User.m in Sources */,
+				4A08174318D47D120056AE9F /* WLFTableReferences.m in Sources */,
+				4A08171818D1FD1F0056AE9F /* WLFCursor.m in Sources */,
+				4A08174F18D74F050056AE9F /* WLFTableReverses.m in Sources */,
+				4A08170B18CE1F070056AE9F /* Book.m in Sources */,
 				4A0816DF18CDF7630056AE9F /* warwolfdb_demoTests.m in Sources */,
+				4A0816F218CDFAB30056AE9F /* WLFEntity.m in Sources */,
+				4A08170218CE101C0056AE9F /* WLFRepository.m in Sources */,
+				4A08173A18D3FB6B0056AE9F /* WLFTableColumns.m in Sources */,
+				4A0816F618CDFBE50056AE9F /* WLFDynamicObject.m in Sources */,
+				4A08173618D3FAFE0056AE9F /* WLFColumnKey.m in Sources */,
+				4A08171418D1FD0C0056AE9F /* WLFDatabase.m in Sources */,
+				4A20702D18E1A52B00D9EFF3 /* WLFArray.m in Sources */,
+				4A08172118D1FFAB0056AE9F /* WLFDatabase+Internal.m in Sources */,
+				4A0816FA18CE0E4A0056AE9F /* WLFArrayProxy.m in Sources */,
+				4A08174B18D47F970056AE9F /* WLFReferenceKey.m in Sources */,
+				4A08175318D88BD40056AE9F /* UserHasBooks.m in Sources */,
+				4A08172E18D3FAD20056AE9F /* WLFTable.m in Sources */,
+				4A0816EE18CDF9BE0056AE9F /* WLFEntityIdentifier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +658,7 @@
 		};
 		4A0816E318CDF7630056AE9F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5882E6EB028E409180D71109 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -370,6 +672,7 @@
 		};
 		4A0816E418CDF7630056AE9F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5882E6EB028E409180D71109 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -383,6 +686,7 @@
 		};
 		4A0816E618CDF7630056AE9F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF2C2F2B1E754EC68EA98B05 /* Pods-warwolfdb-demoTests.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/warwolfdb-demo.app/warwolfdb-demo";
@@ -396,8 +700,15 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					"TEST=1",
 				);
 				INFOPLIST_FILE = "warwolfdb-demoTests/warwolfdb-demoTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lsqlite3",
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -406,6 +717,7 @@
 		};
 		4A0816E718CDF7630056AE9F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF2C2F2B1E754EC68EA98B05 /* Pods-warwolfdb-demoTests.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/warwolfdb-demo.app/warwolfdb-demo";
@@ -416,7 +728,18 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "warwolfdb-demo/warwolfdb-demo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"TEST=1",
+				);
 				INFOPLIST_FILE = "warwolfdb-demoTests/warwolfdb-demoTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lsqlite3",
+					"-framework",
+					XCTest,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -442,6 +765,7 @@
 				4A0816E418CDF7630056AE9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4A0816E518CDF7630056AE9F /* Build configuration list for PBXNativeTarget "warwolfdb-demoTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +774,7 @@
 				4A0816E718CDF7630056AE9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

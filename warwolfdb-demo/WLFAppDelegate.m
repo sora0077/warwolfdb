@@ -8,6 +8,18 @@
 
 #import "WLFAppDelegate.h"
 
+#import "User.h"
+#import "Book.h"
+
+#import "WLFDatabase.h"
+#import "WLFCursor.h"
+#import "WLFEntityIdentifier.h"
+
+#import "WLFTable.h"
+#import "WLFTableReferences.h"
+#import "WLFReferenceKey.h"
+#import "WLFTableReverses.h"
+
 @implementation WLFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -16,6 +28,56 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+
+
+    NSString *docsPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *dbPath   = [docsPath stringByAppendingPathComponent:@"test.db"];
+
+    NSURL *url = [NSURL fileURLWithPath:dbPath];
+
+    [WLFDatabase connect:url];
+
+    [WLFDatabase findSQL:@"PRAGMA foreign_keys" args:nil process:^id(WLFCursor *cursor) {
+        if (cursor.next) {
+            NSLog(@"%@", cursor.result);
+        }
+        return nil;
+    }];
+    [WLFDatabase executeSQL:@"PRAGMA foreign_keys = ON;"];
+
+    [WLFDatabase findSQL:@"PRAGMA foreign_keys" process:^id(WLFCursor *cursor) {
+        if (cursor.next) {
+            NSLog(@"%@", cursor.result);
+        }
+        return nil;
+    }];
+    [WLFDatabase executeSQL:@"CREATE TABLE IF NOT EXISTS User (id TEXT PRIMARY KEY NOT NULL, name TEXT)"];
+    [WLFDatabase executeSQL:@"CREATE TABLE IF NOT EXISTS Book (id TEXT PRIMARY KEY NOT NULL, name TEXT, auther_id TEXT, FOREIGN KEY(auther_id) REFERENCES User(id) ON DELETE SET NULL)"];
+    [WLFDatabase executeSQL:@"CREATE TABLE IF NOT EXISTS User_has_Books (user_id TEXT NOT NULL, book_id TEXT NOT NULL, FOREIGN KEY(user_id) REFERENCES User(id) ON DELETE CASCADE, FOREIGN KEY(book_id) REFERENCES Book(id) ON DELETE CASCADE)"];
+
+//    [WLFTable tableWithName:@"User_Has_books"];
+//    [WLFTable tableWithName:@"User"];
+//    [WLFTable tableWithName:@"Book"];
+//    WLFTable *table = [WLFTable tableWithName:@"User"];
+//    NSLog(@"%@ %@", table.name, table.reverses);
+//
+//    table = [WLFTable tableWithName:@"User_has_Books"];
+//    NSLog(@"%@ %@", table.name, table.reverses);
+//    table = [WLFTable tableWithName:@"Book"];
+//    NSLog(@"%@ %@", table.name, table.reverses);
+
+//    __weak User *user;
+//    @autoreleasepool {
+//        User *u1 = [User entity];
+//        Book *b1 = [Book entity];
+//
+//        user = u1;
+//        b1.auther = u1;
+//    }
+
+    WLFEntityIdentifier *identifier = [WLFEntityIdentifier identifier];
+    NSLog(@"%d", [identifier isEqual:[identifier copy]]);
+
     return YES;
 }
 
