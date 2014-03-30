@@ -8,6 +8,8 @@
 
 #import "WLFEntity.h"
 
+@class User, Book;
 @interface UserHasBooks : WLFEntity
-
+@property (nonatomic) User *user;
+@property (nonatomic) Book *book;
 @end

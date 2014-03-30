@@ -33,24 +33,51 @@
 
 - (id)symbolize;
 
+- (void)save;
+- (void)delete;
+
+- (void)sync;
+
 @end
 
 @interface WLFEntity (WLFRepository)
 + (instancetype)entity;
 + (instancetype)entity:(WLFEntityIdentifier *)identifier;
 + (instancetype)entity:(WLFEntityIdentifier *)identifier values:(NSDictionary *)values;
+
++ (NSArray *)entityAll;
++ (NSArray *)find:(NSString *)key value:(id)value;
+
 @end
 
 
 @class WLFTable;
 @interface WLFEntity (WLFTable)
 + (NSString *)tableName;
++ (WLFTable *)table;
+
 @property (nonatomic, readonly) WLFTable *table;
+@property (nonatomic, readonly) id primarykey;
+
+- (id)objectForReverse:(WLFTable *)table key:(NSString *)revKey;
+- (void)setObject:(id)anObject forReverse:(WLFTable *)table key:(NSString *)revKey;
+
+@end
+
+
+@interface WLFEntity (WLFEntity)
+
+- (void)setObject:(id)anObject forKey:(NSString *)aKey;
+- (id)objectForKey:(NSString *)aKey;
 
 @end
 
 
 @interface NSArray (WLFEntity)
 - (BOOL)save;
+- (void)add:(WLFEntity *)anObject;
+- (void)remove:(WLFEntity *)anObject;
+
+- (NSArray *)wlf_map:(id (^)(id val))block;
 
 @end

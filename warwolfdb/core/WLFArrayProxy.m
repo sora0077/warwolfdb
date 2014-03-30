@@ -7,28 +7,34 @@
 //
 
 #import "WLFArrayProxy.h"
+#import <objc/message.h>
+#import "WLFTable.h"
 #import "WLFEntity.h"
 #import "WLFEntityIdentifier.h"
+
+@interface WLFEntity (WLFArrayProxy)
+
+- (void)setRelatedEntity:(WLFEntity *)entity forKey:(NSString *)key;
+- (void)removeRelatedEntity:(WLFEntity *)entity forKey:(NSString *)key;
+@end
 
 @implementation WLFArrayProxy
 {
     NSString *_key;
     NSMutableOrderedSet *_array;
+    NSMutableDictionary *_throughs;
     __weak WLFEntity *_owner;
-    Class _itemClass;
+    Class _itemClass, _throughClass;
 }
 
-- (id)initWithArray:(NSArray *)array itemClass:(__unsafe_unretained Class)itemClass owner:(WLFEntity *)owner key:(NSString *)key
+- (id)initWithItemClass:(Class)itemClass throughClass:(Class)throughClass owner:(WLFEntity *)owner key:(NSString *)key
 {
     self = [super init];
     if (self) {
         NSLog(@"%s %@", __func__, owner);
-        NSMutableArray *skeltonArray = @[].mutableCopy;
-        for (WLFEntity *entity in array) {
-            [skeltonArray addObject:entity.symbolize];
-        }
-        _array = [NSMutableOrderedSet orderedSetWithArray:skeltonArray];
+        _array = [NSMutableOrderedSet orderedSet];
         _itemClass = itemClass;
+        _throughClass = throughClass;
         _owner = owner;
         _key = key;
     }
@@ -38,6 +44,14 @@
 - (void)dealloc
 {
     
+}
+
+- (NSMutableDictionary *)throughs
+{
+    if (_throughs == nil) {
+        _throughs = @{}.mutableCopy;
+    }
+    return _throughs;
 }
 
 - (NSUInteger)count
@@ -55,19 +69,63 @@
     return [_array description];
 }
 
-- (NSArray *)array
-{
-    return [_array array];
-}
-
 - (void)add:(WLFEntity *)entity
 {
-    [_array addObject:entity.symbolize];
+    id symbol = entity.symbolize;
+    if (entity == nil || [_array containsObject:symbol]) return;
+
+    NSString *name = _key;
+    if (_throughClass) {
+        NSString *usingKey = ({
+            NSString *usingKey = [_key stringByAppendingString:@"UsingKey"];
+            usingKey = objc_msgSend(_owner.class, NSSelectorFromString(usingKey));
+            usingKey;
+        });
+        NSString *watchKey = ({
+            NSString *watchKey = [_key stringByAppendingString:@"WatchKey"];
+            watchKey = objc_msgSend(_owner.class, NSSelectorFromString(watchKey));
+            watchKey;
+        });
+        WLFTable *table = [_throughClass table];
+        id usingValue = [_owner objectForReverse:table key:usingKey];
+        id watchValue = [entity objectForReverse:table key:watchKey];
+
+        NSParameterAssert(usingValue);
+        NSParameterAssert(watchValue);
+
+        WLFEntity *t_entity = [_throughs[entity.identifier] instantiate] ?: [_throughClass entity];
+        [t_entity setObject:usingValue forKey:usingKey];
+        [t_entity setObject:watchValue forKey:watchKey];
+
+        [self.throughs setObject:t_entity.symbolize forKey:entity.identifier];
+        name = objc_msgSend([_owner class], NSSelectorFromString([name stringByAppendingString:@"Against"]));
+    }
+    [_array addObject:symbol];
+    [entity setRelatedEntity:_owner forKey:name];
 }
 
 - (void)remove:(WLFEntity *)entity
 {
-    [_array removeObject:entity.symbolize];
+    id symbol = entity.symbolize;
+    if (entity == nil || ![_array containsObject:symbol]) return;
+
+    NSString *name = _key;
+    if (_throughClass) {
+        WLFEntity *t_entity = [_throughs[entity.identifier] instantiate] ?: [_throughClass entity];
+        [t_entity delete];
+        [_throughs removeObjectForKey:entity.identifier];
+        name = objc_msgSend([_owner class], NSSelectorFromString([name stringByAppendingString:@"Against"]));
+    }
+    [_array removeObject:symbol];
+    [entity removeRelatedEntity:_owner forKey:name];
+}
+
+- (void)removeAll
+{
+    for (WLFEntity *entity in self) {
+        [entity removeRelatedEntity:_owner forKey:_key];
+        [self remove:entity];
+    }
 }
 
 @end

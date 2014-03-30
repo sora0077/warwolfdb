@@ -172,7 +172,7 @@ static inline BOOL is_subclass_of_class(Class class, Class target)
         return imp_implementationWithBlock(^id (WLFDynamicObject *receiver) {
             return [receiver arrayForDynamicKey:property
                                      arrayClass:primaryClass
-                                     itemClass:secondaryClass];
+                                      itemClass:secondaryClass];
         });
 #ifdef TEST
     } else if (is_subclass_of_class(primaryClass, [WLFDynamicObject class])) {
@@ -382,5 +382,6 @@ static inline BOOL is_subclass_of_class(Class class, Class target)
     }
     return NO;
 }
+
 
 @end

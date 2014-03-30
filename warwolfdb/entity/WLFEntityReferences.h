@@ -13,13 +13,13 @@
 
 - (id)initWithOwner:(WLFEntity *)owner;
 
-- (WLFEntityReferenceKey *)objectForKeyedSubscript:(Class)class;
+- (WLFEntityReferenceKey *)objectForKeyedSubscript:(id)key;
 
 @end
 
 @class WLFArrayProxy;
 @interface WLFEntityReferenceKey : NSObject
 
-- (WLFArrayProxy *)objectForKeyedSubscript:(id)key;
+- (WLFArrayProxy *)proxyForKey:(id)key throughClass:(Class)throughClass;
 
 @end

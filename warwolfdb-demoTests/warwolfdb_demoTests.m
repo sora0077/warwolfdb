@@ -18,6 +18,7 @@
 
 #import "User.h"
 #import "Book.h"
+#import "UserHasBooks.h"
 
 SPEC_BEGIN(demoTests)
 
@@ -46,13 +47,21 @@ describe(@"WLFEntity", ^{
         }];
         [WLFDatabase executeSQL:@"CREATE TABLE IF NOT EXISTS User (id TEXT PRIMARY KEY NOT NULL, name TEXT)"];
         [WLFDatabase executeSQL:@"CREATE TABLE IF NOT EXISTS Book (id TEXT PRIMARY KEY NOT NULL, name TEXT, auther_id TEXT, FOREIGN KEY(auther_id) REFERENCES User(id) ON DELETE SET NULL)"];
-        [WLFDatabase executeSQL:@"CREATE TABLE IF NOT EXISTS User_has_Books (user_id TEXT NOT NULL, book_id TEXT NOT NULL, FOREIGN KEY(user_id) REFERENCES User(id) ON DELETE CASCADE, FOREIGN KEY(book_id) REFERENCES Book(id) ON DELETE CASCADE)"];
+        [WLFDatabase executeSQL:@"CREATE TABLE IF NOT EXISTS User_has_Books (user_id TEXT NOT NULL, book_id TEXT NOT NULL, FOREIGN KEY(user_id) REFERENCES User(id) ON DELETE CASCADE, FOREIGN KEY(book_id) REFERENCES Book(id) ON DELETE CASCADE, UNIQUE(user_id, book_id))"];
+
+        [WLFDatabase executeSQL:@"CREATE TABLE IF NOT EXISTS Follows (following_user_id TEXT NOT NULL, follower_user_id TEXT NOT NULL, FOREIGN KEY(following_user_id) REFERENCES User(id) ON DELETE CASCADE, FOREIGN KEY(follower_user_id) REFERENCES User(id) ON DELETE CASCADE, UNIQUE(following_user_id, follower_user_id))"];
+
+        [WLFTable tableWithName:@"User"];
+        [WLFTable tableWithName:@"Book"];
+        [WLFTable tableWithName:@"User_has_Books"];
+        [WLFTable tableWithName:@"Follows"];
     });
 
     afterEach(^{
         [WLFDatabase executeSQL:@"DROP TABLE User_has_Books"];
         [WLFDatabase executeSQL:@"DROP TABLE Book"];
         [WLFDatabase executeSQL:@"DROP TABLE User"];
+        [WLFDatabase executeSQL:@"DROP TABLE Follows"];
     });
 
     it(@"take it easy", ^{
@@ -99,6 +108,20 @@ describe(@"WLFEntity", ^{
 
         b1.auther = nil;
         [[theValue(u1.auther__books.count) should] equal:theValue(0)];
+    });
+
+    it(@"should have user followers, if another user add followings", ^{
+        User *u1 = [User entity];
+        User *u2 = [User entity];
+
+        [[theValue(u1.followings.count) should] equal:theValue(0)];
+        [[theValue(u2.followers.count) should] equal:theValue(0)];
+
+        [u1.followings add:u2];
+
+        [[theValue(u1.followings.count) should] equal:theValue(1)];
+        [[theValue(u2.followers.count) should] equal:theValue(1)];
+        [[u2.followers[0] should] equal:u1];
     });
 
     it(@"entity should not have retain cycle", ^{

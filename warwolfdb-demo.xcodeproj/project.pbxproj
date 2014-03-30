@@ -56,6 +56,8 @@
 		4A08175318D88BD40056AE9F /* UserHasBooks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08175118D88BD40056AE9F /* UserHasBooks.m */; };
 		4A20702C18E1A52B00D9EFF3 /* WLFArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A20702B18E1A52B00D9EFF3 /* WLFArray.m */; };
 		4A20702D18E1A52B00D9EFF3 /* WLFArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A20702B18E1A52B00D9EFF3 /* WLFArray.m */; };
+		4A20703018E3123100D9EFF3 /* Follows.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A20702F18E3123100D9EFF3 /* Follows.m */; };
+		4A20703118E3123100D9EFF3 /* Follows.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A20702F18E3123100D9EFF3 /* Follows.m */; };
 		4A6C1BE418DF0C1700F64A62 /* WLFEntityReferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C1BE318DF0C1700F64A62 /* WLFEntityReferences.m */; };
 		4A6C1BE518DF0C1700F64A62 /* WLFEntityReferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C1BE318DF0C1700F64A62 /* WLFEntityReferences.m */; };
 		96669DA15EF242E89A0B78AE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 035E06074E7F4CA79C6983D3 /* libPods.a */; };
@@ -128,6 +130,8 @@
 		4A08175118D88BD40056AE9F /* UserHasBooks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHasBooks.m; sourceTree = "<group>"; };
 		4A20702A18E1A52B00D9EFF3 /* WLFArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFArray.h; sourceTree = "<group>"; };
 		4A20702B18E1A52B00D9EFF3 /* WLFArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFArray.m; sourceTree = "<group>"; };
+		4A20702E18E3123100D9EFF3 /* Follows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Follows.h; sourceTree = "<group>"; };
+		4A20702F18E3123100D9EFF3 /* Follows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Follows.m; sourceTree = "<group>"; };
 		4A6C1BE218DF0C1700F64A62 /* WLFEntityReferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFEntityReferences.h; sourceTree = "<group>"; };
 		4A6C1BE318DF0C1700F64A62 /* WLFEntityReferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFEntityReferences.m; sourceTree = "<group>"; };
 		5882E6EB028E409180D71109 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -284,6 +288,8 @@
 				4A08170918CE1F070056AE9F /* Book.m */,
 				4A08175018D88BD40056AE9F /* UserHasBooks.h */,
 				4A08175118D88BD40056AE9F /* UserHasBooks.m */,
+				4A20702E18E3123100D9EFF3 /* Follows.h */,
+				4A20702F18E3123100D9EFF3 /* Follows.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -523,6 +529,7 @@
 				4A20702C18E1A52B00D9EFF3 /* WLFArray.m in Sources */,
 				4A08171318D1FD0C0056AE9F /* WLFDatabase.m in Sources */,
 				4A08175218D88BD40056AE9F /* UserHasBooks.m in Sources */,
+				4A20703018E3123100D9EFF3 /* Follows.m in Sources */,
 				4A0816C618CDF7630056AE9F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,6 +551,7 @@
 				4A0816F618CDFBE50056AE9F /* WLFDynamicObject.m in Sources */,
 				4A08173618D3FAFE0056AE9F /* WLFColumnKey.m in Sources */,
 				4A08171418D1FD0C0056AE9F /* WLFDatabase.m in Sources */,
+				4A20703118E3123100D9EFF3 /* Follows.m in Sources */,
 				4A20702D18E1A52B00D9EFF3 /* WLFArray.m in Sources */,
 				4A08172118D1FFAB0056AE9F /* WLFDatabase+Internal.m in Sources */,
 				4A0816FA18CE0E4A0056AE9F /* WLFArrayProxy.m in Sources */,

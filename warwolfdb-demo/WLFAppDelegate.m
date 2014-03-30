@@ -20,6 +20,8 @@
 #import "WLFReferenceKey.h"
 #import "WLFTableReverses.h"
 
+#import "WLFRepository.h"
+
 @implementation WLFAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -53,9 +55,10 @@
     }];
     [WLFDatabase executeSQL:@"CREATE TABLE IF NOT EXISTS User (id TEXT PRIMARY KEY NOT NULL, name TEXT)"];
     [WLFDatabase executeSQL:@"CREATE TABLE IF NOT EXISTS Book (id TEXT PRIMARY KEY NOT NULL, name TEXT, auther_id TEXT, FOREIGN KEY(auther_id) REFERENCES User(id) ON DELETE SET NULL)"];
-    [WLFDatabase executeSQL:@"CREATE TABLE IF NOT EXISTS User_has_Books (user_id TEXT NOT NULL, book_id TEXT NOT NULL, FOREIGN KEY(user_id) REFERENCES User(id) ON DELETE CASCADE, FOREIGN KEY(book_id) REFERENCES Book(id) ON DELETE CASCADE)"];
+//    [WLFDatabase executeSQL:@"CREATE TABLE IF NOT EXISTS User_has_Books (user_id TEXT NOT NULL, book_id TEXT NOT NULL, FOREIGN KEY(user_id) REFERENCES User(id) ON DELETE CASCADE, FOREIGN KEY(book_id) REFERENCES Book(id) ON DELETE CASCADE, UNIQUE(user_id, book_id))"];
+    [WLFDatabase executeSQL:@"CREATE TABLE IF NOT EXISTS Follows (following_user_id TEXT NOT NULL, follower_user_id TEXT NOT NULL, FOREIGN KEY(following_user_id) REFERENCES User(id) ON DELETE CASCADE, FOREIGN KEY(follower_user_id) REFERENCES User(id) ON DELETE CASCADE, UNIQUE(following_user_id, follower_user_id))"];
 
-//    [WLFTable tableWithName:@"User_Has_books"];
+    [WLFTable tableWithName:@"Follows"];
 //    [WLFTable tableWithName:@"User"];
 //    [WLFTable tableWithName:@"Book"];
 //    WLFTable *table = [WLFTable tableWithName:@"User"];
@@ -67,13 +70,31 @@
 //    NSLog(@"%@ %@", table.name, table.reverses);
 
 //    __weak User *user;
-//    @autoreleasepool {
-//        User *u1 = [User entity];
-//        Book *b1 = [Book entity];
-//
-//        user = u1;
-//        b1.auther = u1;
-//    }
+    @autoreleasepool {
+        User *u1 = [User entity];
+        @autoreleasepool {
+            __weak Book *b1 = [Book entity];
+        }
+
+        User *u2 = [User entity];
+        User *u3 = [User entity];
+
+        u1.followings = @[u2];
+        [u1.followings add:u3];
+        u1.followings = @[];
+
+        [u2.followers add:u3];
+
+        NSLog(@"%@", u1.followings);
+        NSLog(@"%@", u2.followers);
+        NSLog(@"%@", u3.followers);
+
+        NSLog(@"%@", [WLFRepository entities]);
+        [WLFRepository sync];
+        NSLog(@"%@", [WLFRepository entities]);
+    }
+    [WLFRepository sync];
+    NSLog(@"%@", [WLFRepository entities]);
 
     WLFEntityIdentifier *identifier = [WLFEntityIdentifier identifier];
     NSLog(@"%d", [identifier isEqual:[identifier copy]]);

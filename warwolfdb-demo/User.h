@@ -10,11 +10,16 @@
 #import <Objective-C-Generics/ObjectiveCGenerics.h>
 
 GENERICSABLE(Book);
+GENERICSABLE(User);
 
 @interface User : WLFEntity
 
+@property (nonatomic) NSArray<User> *followings;
+@property (nonatomic) NSArray<User> *followers;
+
 @property (nonatomic) NSArray<Book> *auther__books;
-@property (nonatomic) NSArray<Book> *books;
+
+
 @property (nonatomic) BOOL test;
 
 @end

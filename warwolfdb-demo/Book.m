@@ -16,4 +16,9 @@
     return @"Book";
 }
 
++ (Class)usersThroughClass
+{
+    return NSClassFromString(@"UserHasBooks");
+}
+
 @end

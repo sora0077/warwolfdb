@@ -78,6 +78,7 @@
 {
     for (WLFReferenceKey *key in _references) {
         [key.table.reverses addReference:key fromTable:self];
+        NSLog(@"Added %@ to %@", self, key.table);
     }
 }
 

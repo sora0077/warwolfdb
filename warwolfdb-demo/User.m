@@ -9,7 +9,8 @@
 #import "User.h"
 
 @implementation User
-@dynamic auther__books, books;
+@dynamic auther__books;
+@dynamic followers, followings;
 @dynamic test;
 
 + (NSString *)tableName
@@ -17,9 +18,46 @@
     return @"User";
 }
 
-+ (Class)booksThroughClass
++ (Class)followersThroughClass
 {
-    return NSClassFromString(@"UserHasBooks");
+    return NSClassFromString(@"Follows");
 }
+
++ (NSString *)followersUsingKey
+{
+    return @"following_user_id";
+}
+
++ (NSString *)followersWatchKey
+{
+    return @"follower_user_id";
+}
+
++ (NSString *)followersAgainst
+{
+    return @"followings";
+}
+
++ (Class)followingsThroughClass
+{
+    return NSClassFromString(@"Follows");
+}
+
++ (NSString *)followingsUsingKey
+{
+    return @"follower_user_id";
+}
+
++ (NSString *)followingsWatchKey
+{
+    return @"following_user_id";
+}
+
++ (NSString *)followingsAgainst
+{
+    return @"followers";
+}
+
+
 
 @end

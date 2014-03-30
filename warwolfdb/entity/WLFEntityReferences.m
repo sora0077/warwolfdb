@@ -62,11 +62,11 @@
     return self;
 }
 
-- (WLFArrayProxy *)objectForKeyedSubscript:(id)key
+- (WLFArrayProxy *)proxyForKey:(id)key throughClass:(Class)throughClass
 {
     WLFArrayProxy *proxy = _reference[key];
     if (proxy == nil) {
-        proxy = [[WLFArrayProxy alloc] initWithArray:nil itemClass:_itemClass owner:_owner key:key];
+        proxy = [[WLFArrayProxy alloc] initWithItemClass:_itemClass throughClass:(Class)throughClass owner:_owner key:key];
         _reference[key] = proxy;
     }
     return proxy;

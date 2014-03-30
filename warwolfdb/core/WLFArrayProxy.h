@@ -13,14 +13,16 @@
 
 @property (nonatomic, readonly) WLFEntity *owner;
 @property (nonatomic, readonly) NSString *key;
-@property (nonatomic, readonly) NSArray *array;
-- (id)initWithArray:(NSArray *)array itemClass:(Class)itemClass owner:(WLFEntity *)owner key:(NSString *)key;
+
+- (id)initWithItemClass:(Class)itemClass throughClass:(Class)throughClass owner:(WLFEntity *)owner key:(NSString *)key;
 
 - (NSUInteger)count;
 - (id)objectAtIndex:(NSUInteger)index;
 
-- (void)add:(id)anObject;
-- (void)remove:(id)anObject;
+- (void)add:(WLFEntity *)anObject;
+- (void)remove:(WLFEntity *)anObject;
+
+- (void)removeAll;
 
 @end
 

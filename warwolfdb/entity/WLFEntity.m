@@ -23,14 +23,15 @@
 
 static Class get_item_class(Class self, NSString *propName)
 {
-    NSString *itemClassSelName = [NSString stringWithFormat:@"%@ItemClass", propName];
+    NSString *itemClassSelName = [propName stringByAppendingString:@"ItemClass"];
     Class itemClass = objc_msgSend(self, NSSelectorFromString(itemClassSelName));
     return itemClass;
 }
 
 static Class get_through_class(Class self, NSString *propName)
 {
-    NSString *throughClassSelName = [NSString stringWithFormat:@"%@ThroughClass", propName];
+    NSString *throughClassSelName = [propName stringByAppendingString:@"ThroughClass"];
+    NSLog(@"%@", throughClassSelName);
     SEL throughClassSel = NSSelectorFromString(throughClassSelName);
     if ([self respondsToSelector:throughClassSel]) {
         return objc_msgSend(self, throughClassSel);
@@ -42,6 +43,7 @@ static Class get_through_class(Class self, NSString *propName)
 @property (nonatomic, readwrite) WLFEntityIdentifier *identifier;
 @property (nonatomic, readwrite) Class entityClass;
 @property (nonatomic, readwrite) NSDictionary *values;
+
 
 - (id)initWithIdentifier:(WLFEntityIdentifier *)identifier entityClass:(Class)entityClass values:(NSDictionary *)values;
 
@@ -89,6 +91,8 @@ static Class get_through_class(Class self, NSString *propName)
 @end
 
 @interface WLFEntity () <WLFDynamicObject>
+@property (nonatomic, readonly) NSString *_type;
+@property (nonatomic, readonly) BOOL _expire;
 
 - (void)setRelatedEntity:(WLFEntity *)entity forKey:(NSString *)key;
 
@@ -98,7 +102,8 @@ static Class get_through_class(Class self, NSString *propName)
 {
     NSMutableDictionary *_dynamics;
     WLFEntityReferences *_references;
-    BOOL _exists;
+    BOOL _exists, _autosave;
+    BOOL __expire;
 }
 
 - (void)dealloc
@@ -118,7 +123,10 @@ static Class get_through_class(Class self, NSString *propName)
         NSParameterAssert(identifier);
         _references = [[WLFEntityReferences alloc] initWithOwner:self];
         _dynamics = @{}.mutableCopy;
-
+        _autosave = YES;
+        __expire = NO;
+        __type = NSStringFromClass(self.class);
+        
         for (WLFColumnKey *key in self.table.columns) {
             if (values && ![values.allKeys containsObject:key.name]) {
                 [self setObject:key.defaultValue forDynamicKey:key.name];
@@ -154,9 +162,44 @@ static Class get_through_class(Class self, NSString *propName)
     return self;
 }
 
+- (void)save
+{
+
+}
+
+- (void)delete
+{
+    __expire = YES;
+}
+
+- (void)sync
+{
+    
+}
+
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"<%@,%p: %@>", NSStringFromClass([self class]), self, self.identifier.uuid];
+}
+
+- (void)setRelatedEntity:(WLFEntity *)entity forKey:(NSString *)key
+{
+    NSParameterAssert(entity);
+    Class itemClass = [entity class];
+    Class throughClass = get_through_class([self class], key);
+    [self setDynamicObject:entity forDynamicKey:key dynamicClass:itemClass];
+    WLFArrayProxy *proxy = [_references[itemClass] proxyForKey:key throughClass:throughClass];
+    [proxy add:entity];
+}
+
+- (void)removeRelatedEntity:(WLFEntity *)entity forKey:(NSString *)key
+{
+    NSParameterAssert(entity);
+    Class itemClass = [entity class];
+    Class throughClass = get_through_class([self class], key);
+    WLFArrayProxy *proxy = [_references[itemClass] proxyForKey:key throughClass:throughClass];
+    [proxy remove:entity];
+    [self setDynamicObject:nil forDynamicKey:key dynamicClass:[entity class]];
 }
 
 - (void)setObject:(id)anObject forDynamicKey:(NSString *)aKey
@@ -185,16 +228,12 @@ static Class get_through_class(Class self, NSString *propName)
     if (itemClass == Nil) itemClass = get_item_class([self class], aKey);
     NSString *name = [aKey componentsSeparatedByString:@"__"][0];
 
-    WLFArrayProxy *proxy = _references[itemClass][name];
-    if (anObject.count) {
-        for (WLFEntity *entity in anObject) {
-            [entity setRelatedEntity:self forKey:name];
-            [proxy add:entity];
-        }
-    } else {
-        for (WLFEntity *e in proxy) {
-            [e.instantiate removeRelatedEntity:self forKey:name];
-        }
+    Class throughClass = get_through_class([self class], name);
+
+    WLFArrayProxy *proxy = [_references[itemClass] proxyForKey:name throughClass:throughClass];
+    [proxy removeAll];
+    for (WLFEntity *entity in anObject) {
+        [proxy add:entity];
     }
 }
 
@@ -202,24 +241,10 @@ static Class get_through_class(Class self, NSString *propName)
 {
     if (itemClass == Nil) itemClass = get_item_class([self class], aKey);
     NSString *name = [aKey componentsSeparatedByString:@"__"][0];
+    Class throughClass = get_through_class([self class], name);
 
-    id ret = _references[itemClass][name];
-    return ret;
-}
-
-- (void)setRelatedEntity:(WLFEntity *)entity forKey:(NSString *)key
-{
-    Class itemClass = [entity class];
-    [self setDynamicObject:entity forDynamicKey:key dynamicClass:itemClass];
-    WLFArrayProxy *proxy = _references[itemClass][key];
-    [proxy add:entity];
-}
-
-- (void)removeRelatedEntity:(WLFEntity *)entity forKey:(NSString *)key
-{
-    Class itemClass = [entity class];
-    [_references[itemClass][key] remove:entity];
-    [self setDynamicObject:nil forDynamicKey:key dynamicClass:[entity class]];
+    WLFArrayProxy *proxy = [_references[itemClass] proxyForKey:name throughClass:throughClass];
+    return proxy;
 }
 
 - (void)setDynamicObject:(id)anObject forDynamicKey:(NSString *)aKey dynamicClass:(Class)dynamicClass
@@ -227,10 +252,14 @@ static Class get_through_class(Class self, NSString *propName)
     WLFReferenceKey *refKey = self.table.references[aKey];
     if (refKey) {
         WLFEntity *entity = anObject;
+        WLFArrayProxy *proxy = [_references[dynamicClass] proxyForKey:aKey throughClass:Nil];
         WLFEntity *prevEntity = [self dynamicObjectForDynamicKey:aKey dynamicClass:dynamicClass];
-        [prevEntity removeRelatedEntity:self forKey:aKey];
-        [self setObject:[entity objectForDynamicKey:refKey.to] forDynamicKey:refKey.from];
-        [entity setRelatedEntity:self forKey:aKey];
+
+        if (entity == nil || ![entity isEqual:prevEntity]) {
+            [self setObject:[entity objectForDynamicKey:refKey.to] forDynamicKey:refKey.from];
+            [proxy remove:prevEntity];
+            [proxy add:entity];
+        }
     }
 }
 
@@ -244,11 +273,17 @@ static Class get_through_class(Class self, NSString *propName)
         if (refId) {
             WLFEntityIdentifier *identifier = [WLFEntityIdentifier identifierWithUUID:refId];
             WLFEntity *entity = [WLFRepository entityWithClass:dynamicClass identifier:identifier];
-            [entity setRelatedEntity:self forKey:aKey];
+            WLFArrayProxy *proxy = [_references[dynamicClass] proxyForKey:aKey throughClass:Nil];
+            [proxy add:entity];
             return entity;
         }
     }
     return nil;
+}
+
+- (void)setCache:(id)obj forKey:(NSString *)aKey
+{
+
 }
 
 @end
@@ -289,5 +324,46 @@ static Class get_through_class(Class self, NSString *propName)
     return [WLFTable tableWithName:[[self class] tableName]];
 }
 
++ (WLFTable *)table
+{
+    return [WLFTable tableWithName:[self tableName]];
+}
+
+- (id)primarykey
+{
+    return [self objectForDynamicKey:self.table.columns.primarykey.name];
+}
+
+- (id)objectForReverse:(WLFTable *)table key:(NSString *)revKey
+{
+    revKey = [revKey componentsSeparatedByString:@"_id"][0];
+    NSString *tableName = table.name.lowercaseString;
+    NSString *aKey = self.table.reverses[tableName][revKey].to;
+    return [self objectForDynamicKey:aKey];
+}
+
+- (void)setObject:(id)anObject forReverse:(WLFTable *)table key:(NSString *)revKey
+{
+    NSString *tableName = table.name.lowercaseString;
+    NSString *aKey = self.table.reverses[tableName][revKey].to;
+    [self setObject:anObject forDynamicKey:aKey];
+}
+
 @end
+
+
+@implementation WLFEntity (WLFEntity)
+
+- (id)objectForKey:(NSString *)aKey
+{
+    return [self objectForDynamicKey:aKey];
+}
+
+- (void)setObject:(id)anObject forKey:(NSString *)aKey
+{
+    [self setObject:anObject forDynamicKey:aKey];
+}
+
+@end
+
 

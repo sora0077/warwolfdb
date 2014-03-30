@@ -7,6 +7,9 @@
 //
 
 #import "WLFEntity.h"
+#import <Objective-C-Generics/ObjectiveCGenerics.h>
+
+GENERICSABLE(User);
 
 @class User;
 @interface Book : WLFEntity

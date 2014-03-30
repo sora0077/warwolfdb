@@ -33,4 +33,6 @@
 
 @interface WLFDynamicObject : NSObject
 
+- (void)setObject:(id)anObject forKey:(NSString *)aKey;
+- (id)objectForKey:(NSString *)aKey;
 @end

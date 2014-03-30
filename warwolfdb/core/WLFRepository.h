@@ -20,8 +20,11 @@
 
 @end
 
-#ifdef TEST
+//#define TEST 1
+//#ifdef TEST
 @interface WLFRepository (TestCase)
++ (void)sync;
 + (NSDictionary *)entities;
 @end
-#endif
+//#endif
+

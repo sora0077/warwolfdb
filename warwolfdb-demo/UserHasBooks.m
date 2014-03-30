@@ -9,10 +9,21 @@
 #import "UserHasBooks.h"
 
 @implementation UserHasBooks
+@dynamic user, book;
 
 + (NSString *)tableName
 {
     return @"User_has_Books";
+}
+
++ (NSString *)booksAgainstProperty
+{
+    return @"users";
+}
+
++ (NSString *)usersAgainstProperty
+{
+    return @"books";
 }
 
 @end

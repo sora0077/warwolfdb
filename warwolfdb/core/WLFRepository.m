@@ -14,9 +14,14 @@
 
 //#define TEST 1
 
+@interface WLFEntity (WLFRepository)
+@property (nonatomic, readonly) BOOL _expire;
+@end
+
 @interface WLFRepository ()
 #ifdef TEST
 @property (nonatomic, readonly) NSMapTable *entities;
+//@property (nonatomic, readonly) NSMutableDictionary *entities;
 #else
 @property (nonatomic, readonly) NSMutableDictionary *entities;
 #endif
@@ -46,6 +51,7 @@
 
 #ifdef TEST
         _entities = [NSMapTable strongToWeakObjectsMapTable];
+//        _entities = @{}.mutableCopy;
 #else
         _entities = @{}.mutableCopy;
 #endif
@@ -70,16 +76,18 @@
 
 - (void)finalizeEntityState:(NSNotification *)notification
 {
+#ifdef TEST
     for (NSString *aKey in _entities) {
+#else
+    for (NSString *aKey in _entities.allKeys) {
+#endif
         __weak WLFEntity *obj;
         @autoreleasepool {
             obj = [_entities objectForKey:aKey];
-            if (obj.dirty) {
-//                <#statements#>
-            }
+            [obj sync];
             [_entities removeObjectForKey:aKey];
         }
-        if (obj) {
+        if (obj && !obj._expire) {
             __strong id sobj = obj;
             [_entities setObject:sobj forKey:aKey];
         }
@@ -118,6 +126,8 @@
         [[self sharedRepository] tables][tableName] = table;
 
         [table setupRelations];
+
+        NSLog(@"%@", [[self sharedRepository] tables]);
     }
     return table;
 }
@@ -125,15 +135,20 @@
 @end
 
 
-#ifdef TEST
+//#ifdef TEST
 
 @implementation WLFRepository (TestCase)
 
-+ (NSDictionary *)entities
++ (void)sync
+{
+    [[self sharedRepository] finalizeEntityState:nil];
+}
+
++ (id)entities
 {
     return [[self sharedRepository] entities];
 }
 
 @end
 
-#endif
+//#endif
