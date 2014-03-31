@@ -10,6 +10,7 @@
 
 #import "User.h"
 #import "Book.h"
+#import "Follows.h"
 
 #import "WLFDatabase.h"
 #import "WLFCursor.h"
@@ -79,9 +80,9 @@
         User *u2 = [User entity];
         User *u3 = [User entity];
 
-        u1.followings = @[u2];
-        [u1.followings add:u3];
-        u1.followings = @[];
+//        u1.followings = @[u2];
+//        [u1.followings add:u3];
+//        u1.followings = @[];
 
         [u2.followers add:u3];
 
@@ -89,9 +90,13 @@
         NSLog(@"%@", u2.followers);
         NSLog(@"%@", u3.followers);
 
-        NSLog(@"%@", [WLFRepository entities]);
+        NSLog(@"%@", [Follows entityAll]);
         [WLFRepository sync];
         NSLog(@"%@", [WLFRepository entities]);
+
+        for (Follows *follows in [Follows entityAll]) {
+            NSLog(@"%@: %@", follows.follower_user, follows.following_user);
+        }
     }
     [WLFRepository sync];
     NSLog(@"%@", [WLFRepository entities]);

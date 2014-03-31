@@ -146,7 +146,11 @@
 
 + (id)entities
 {
-    return [[self sharedRepository] entities];
+    id entities = [[self sharedRepository] entities];
+    if ([entities isKindOfClass:[NSMapTable class]]) {
+        entities = [entities dictionaryRepresentation];
+    }
+    return entities;
 }
 
 @end

@@ -93,9 +93,16 @@
         NSParameterAssert(usingValue);
         NSParameterAssert(watchValue);
 
-        WLFEntity *t_entity = [_throughs[entity.identifier] instantiate] ?: [_throughClass entity];
-        [t_entity setObject:usingValue forKey:usingKey];
-        [t_entity setObject:watchValue forKey:watchKey];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %@ AND %K = %@", usingKey, usingValue, watchKey, watchValue];
+        NSArray *t_entities = [[_throughClass entityAll] filteredArrayUsingPredicate:predicate];
+        WLFEntity *t_entity = nil;
+        if (t_entities.count) {
+            t_entity = t_entities[0];
+        } else {
+            t_entity = [_throughs[entity.identifier] instantiate] ?: [_throughClass entity];
+            [t_entity setObject:usingValue forKey:usingKey];
+            [t_entity setObject:watchValue forKey:watchKey];
+        }
 
         [self.throughs setObject:t_entity.symbolize forKey:entity.identifier];
         name = objc_msgSend([_owner class], NSSelectorFromString([name stringByAppendingString:@"Against"]));

@@ -31,7 +31,6 @@ static Class get_item_class(Class self, NSString *propName)
 static Class get_through_class(Class self, NSString *propName)
 {
     NSString *throughClassSelName = [propName stringByAppendingString:@"ThroughClass"];
-    NSLog(@"%@", throughClassSelName);
     SEL throughClassSel = NSSelectorFromString(throughClassSelName);
     if ([self respondsToSelector:throughClassSel]) {
         return objc_msgSend(self, throughClassSel);
@@ -307,6 +306,13 @@ static Class get_through_class(Class self, NSString *propName)
                                    values:values];
 }
 
++ (NSArray *)entityAll
+{
+//    NSLog(@"%@", [WLFRepository entities]);
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"_type = %@", NSStringFromClass(self)];
+    return [[WLFRepository entities].allValues filteredArrayUsingPredicate:predicate];
+}
+
 @end
 
 
@@ -362,6 +368,14 @@ static Class get_through_class(Class self, NSString *propName)
 - (void)setObject:(id)anObject forKey:(NSString *)aKey
 {
     [self setObject:anObject forDynamicKey:aKey];
+}
+
+- (id)valueForKey:(NSString *)key
+{
+    if ([self.table.columns containsKey:key]) {
+        return [self objectForKey:key];
+    }
+    return [super valueForKey:key];
 }
 
 @end

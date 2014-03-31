@@ -16,5 +16,9 @@
     return @"Follows";
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%p, following: %p, follower: %p", self, self.following_user, self.follower_user];
+}
 
 @end

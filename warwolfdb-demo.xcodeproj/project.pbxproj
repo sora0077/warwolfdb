@@ -26,8 +26,6 @@
 		4A0816F218CDFAB30056AE9F /* WLFEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0816F018CDFAB30056AE9F /* WLFEntity.m */; };
 		4A0816F518CDFBE50056AE9F /* WLFDynamicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0816F418CDFBE50056AE9F /* WLFDynamicObject.m */; };
 		4A0816F618CDFBE50056AE9F /* WLFDynamicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0816F418CDFBE50056AE9F /* WLFDynamicObject.m */; };
-		4A0816F918CE0E4A0056AE9F /* WLFArrayProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0816F818CE0E4A0056AE9F /* WLFArrayProxy.m */; };
-		4A0816FA18CE0E4A0056AE9F /* WLFArrayProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0816F818CE0E4A0056AE9F /* WLFArrayProxy.m */; };
 		4A08170118CE101C0056AE9F /* WLFRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08170018CE101C0056AE9F /* WLFRepository.m */; };
 		4A08170218CE101C0056AE9F /* WLFRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08170018CE101C0056AE9F /* WLFRepository.m */; };
 		4A08170618CE1EF00056AE9F /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08170518CE1EF00056AE9F /* User.m */; };
@@ -54,8 +52,8 @@
 		4A08174F18D74F050056AE9F /* WLFTableReverses.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08174D18D74F050056AE9F /* WLFTableReverses.m */; };
 		4A08175218D88BD40056AE9F /* UserHasBooks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08175118D88BD40056AE9F /* UserHasBooks.m */; };
 		4A08175318D88BD40056AE9F /* UserHasBooks.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A08175118D88BD40056AE9F /* UserHasBooks.m */; };
-		4A20702C18E1A52B00D9EFF3 /* WLFArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A20702B18E1A52B00D9EFF3 /* WLFArray.m */; };
-		4A20702D18E1A52B00D9EFF3 /* WLFArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A20702B18E1A52B00D9EFF3 /* WLFArray.m */; };
+		4A0BDCC118E9B251004102FA /* WLFArrayProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0BDCC018E9B251004102FA /* WLFArrayProxy.m */; };
+		4A0BDCC218E9B251004102FA /* WLFArrayProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0BDCC018E9B251004102FA /* WLFArrayProxy.m */; };
 		4A20703018E3123100D9EFF3 /* Follows.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A20702F18E3123100D9EFF3 /* Follows.m */; };
 		4A20703118E3123100D9EFF3 /* Follows.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A20702F18E3123100D9EFF3 /* Follows.m */; };
 		4A6C1BE418DF0C1700F64A62 /* WLFEntityReferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A6C1BE318DF0C1700F64A62 /* WLFEntityReferences.m */; };
@@ -97,8 +95,6 @@
 		4A0816F018CDFAB30056AE9F /* WLFEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFEntity.m; sourceTree = "<group>"; };
 		4A0816F318CDFBE50056AE9F /* WLFDynamicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFDynamicObject.h; sourceTree = "<group>"; };
 		4A0816F418CDFBE50056AE9F /* WLFDynamicObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFDynamicObject.m; sourceTree = "<group>"; };
-		4A0816F718CE0E4A0056AE9F /* WLFArrayProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFArrayProxy.h; sourceTree = "<group>"; };
-		4A0816F818CE0E4A0056AE9F /* WLFArrayProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFArrayProxy.m; sourceTree = "<group>"; };
 		4A0816FF18CE101C0056AE9F /* WLFRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFRepository.h; sourceTree = "<group>"; };
 		4A08170018CE101C0056AE9F /* WLFRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFRepository.m; sourceTree = "<group>"; };
 		4A08170418CE1EF00056AE9F /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -128,8 +124,8 @@
 		4A08174D18D74F050056AE9F /* WLFTableReverses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFTableReverses.m; sourceTree = "<group>"; };
 		4A08175018D88BD40056AE9F /* UserHasBooks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserHasBooks.h; sourceTree = "<group>"; };
 		4A08175118D88BD40056AE9F /* UserHasBooks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserHasBooks.m; sourceTree = "<group>"; };
-		4A20702A18E1A52B00D9EFF3 /* WLFArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFArray.h; sourceTree = "<group>"; };
-		4A20702B18E1A52B00D9EFF3 /* WLFArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFArray.m; sourceTree = "<group>"; };
+		4A0BDCBF18E9B251004102FA /* WLFArrayProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFArrayProxy.h; sourceTree = "<group>"; };
+		4A0BDCC018E9B251004102FA /* WLFArrayProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLFArrayProxy.m; sourceTree = "<group>"; };
 		4A20702E18E3123100D9EFF3 /* Follows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Follows.h; sourceTree = "<group>"; };
 		4A20702F18E3123100D9EFF3 /* Follows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Follows.m; sourceTree = "<group>"; };
 		4A6C1BE218DF0C1700F64A62 /* WLFEntityReferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFEntityReferences.h; sourceTree = "<group>"; };
@@ -256,8 +252,6 @@
 			children = (
 				4A0816F318CDFBE50056AE9F /* WLFDynamicObject.h */,
 				4A0816F418CDFBE50056AE9F /* WLFDynamicObject.m */,
-				4A0816F718CE0E4A0056AE9F /* WLFArrayProxy.h */,
-				4A0816F818CE0E4A0056AE9F /* WLFArrayProxy.m */,
 				4A0816FF18CE101C0056AE9F /* WLFRepository.h */,
 				4A08170018CE101C0056AE9F /* WLFRepository.m */,
 			);
@@ -273,8 +267,8 @@
 				4A0816F018CDFAB30056AE9F /* WLFEntity.m */,
 				4A6C1BE218DF0C1700F64A62 /* WLFEntityReferences.h */,
 				4A6C1BE318DF0C1700F64A62 /* WLFEntityReferences.m */,
-				4A20702A18E1A52B00D9EFF3 /* WLFArray.h */,
-				4A20702B18E1A52B00D9EFF3 /* WLFArray.m */,
+				4A0BDCBF18E9B251004102FA /* WLFArrayProxy.h */,
+				4A0BDCC018E9B251004102FA /* WLFArrayProxy.m */,
 			);
 			path = entity;
 			sourceTree = "<group>";
@@ -516,6 +510,7 @@
 				4A0816F518CDFBE50056AE9F /* WLFDynamicObject.m in Sources */,
 				4A6C1BE418DF0C1700F64A62 /* WLFEntityReferences.m in Sources */,
 				4A08173918D3FB6B0056AE9F /* WLFTableColumns.m in Sources */,
+				4A0BDCC118E9B251004102FA /* WLFArrayProxy.m in Sources */,
 				4A08170118CE101C0056AE9F /* WLFRepository.m in Sources */,
 				4A08172D18D3FAD20056AE9F /* WLFTable.m in Sources */,
 				4A0816ED18CDF9BE0056AE9F /* WLFEntityIdentifier.m in Sources */,
@@ -525,8 +520,6 @@
 				4A08174218D47D120056AE9F /* WLFTableReferences.m in Sources */,
 				4A0816CA18CDF7630056AE9F /* WLFAppDelegate.m in Sources */,
 				4A08173518D3FAFE0056AE9F /* WLFColumnKey.m in Sources */,
-				4A0816F918CE0E4A0056AE9F /* WLFArrayProxy.m in Sources */,
-				4A20702C18E1A52B00D9EFF3 /* WLFArray.m in Sources */,
 				4A08171318D1FD0C0056AE9F /* WLFDatabase.m in Sources */,
 				4A08175218D88BD40056AE9F /* UserHasBooks.m in Sources */,
 				4A20703018E3123100D9EFF3 /* Follows.m in Sources */,
@@ -546,15 +539,14 @@
 				4A08170B18CE1F070056AE9F /* Book.m in Sources */,
 				4A0816DF18CDF7630056AE9F /* warwolfdb_demoTests.m in Sources */,
 				4A0816F218CDFAB30056AE9F /* WLFEntity.m in Sources */,
+				4A0BDCC218E9B251004102FA /* WLFArrayProxy.m in Sources */,
 				4A08170218CE101C0056AE9F /* WLFRepository.m in Sources */,
 				4A08173A18D3FB6B0056AE9F /* WLFTableColumns.m in Sources */,
 				4A0816F618CDFBE50056AE9F /* WLFDynamicObject.m in Sources */,
 				4A08173618D3FAFE0056AE9F /* WLFColumnKey.m in Sources */,
 				4A08171418D1FD0C0056AE9F /* WLFDatabase.m in Sources */,
 				4A20703118E3123100D9EFF3 /* Follows.m in Sources */,
-				4A20702D18E1A52B00D9EFF3 /* WLFArray.m in Sources */,
 				4A08172118D1FFAB0056AE9F /* WLFDatabase+Internal.m in Sources */,
-				4A0816FA18CE0E4A0056AE9F /* WLFArrayProxy.m in Sources */,
 				4A08174B18D47F970056AE9F /* WLFReferenceKey.m in Sources */,
 				4A08175318D88BD40056AE9F /* UserHasBooks.m in Sources */,
 				4A08172E18D3FAD20056AE9F /* WLFTable.m in Sources */,

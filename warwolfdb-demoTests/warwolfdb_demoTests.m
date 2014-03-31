@@ -13,12 +13,12 @@
 #import "WLFTable.h"
 #import "WLFEntity.h"
 #import "WLFEntityIdentifier.h"
-#import "WLFArray.h"
 #import "WLFRepository.h"
 
 #import "User.h"
 #import "Book.h"
 #import "UserHasBooks.h"
+#import "Follows.h"
 
 SPEC_BEGIN(demoTests)
 
@@ -135,7 +135,6 @@ describe(@"WLFEntity", ^{
             b1.auther = u1;
             book.auther = u1;
         }
-        NSLog(@"%@", [WLFRepository entities]);
         [[user should] beNil];
 
     });
